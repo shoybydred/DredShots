@@ -545,7 +545,21 @@
             <h2 class="section-title">Ready To Work Together?</h2>
             <p class="section-subtitle">Contact Me</p>
 
-            <form action="https://formsubmit.co/shotsbydred@gmail.com" method="POST" class="contact-form">
+            <!-- Success Message Modal -->
+            <div class="success-modal" id="successModal">
+                <div class="success-content">
+                    <div class="success-checkmark">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h3 class="success-title">Successfully Sent!</h3>
+                    <p class="success-message">I'll reach back to you when I can</p>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/xanykorw" method="POST" class="contact-form" id="contactForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
@@ -606,6 +620,7 @@
     </section>
 
     <script>
+        // Gallery Filter
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -628,6 +643,22 @@
                     }
                 });
             });
+        });
+
+        // Contact Form Success Animation
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+
+        contactForm.addEventListener('submit', function(e) {
+            // Show success modal
+            setTimeout(() => {
+                successModal.classList.add('show');
+                
+                // Hide modal after 4 seconds
+                setTimeout(() => {
+                    successModal.classList.remove('show');
+                }, 4000);
+            }, 500);
         });
     </script>
 </body>
